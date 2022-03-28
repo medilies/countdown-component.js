@@ -17,7 +17,7 @@ document.querySelectorAll("[CountDown]").forEach((el) => {
         );
     })();
 
-    // init
+    // init 
     el.innerHTML = moment.utc(remainingTime * 1000).format(timerFormat);
 
     setInterval(() => {
