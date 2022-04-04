@@ -1,22 +1,24 @@
 name: Minify Workflow
 on:
-  push:
-    branches: [ main ]
+    push:
+        branches: [main]
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      # Checks-out your repository
-      - uses: actions/checkout@v2
-        with:
-          ref: ${{ github.ref }}
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            # Checks-out your repository
+            - uses: actions/checkout@v2
+              with:
+                  ref: ${{ github.ref }}
 
-      - name: Minify Action
-        uses: anthonyftwang/minify-action@v1.0.1
+            - name: Minify Action
+              uses: anthonyftwang/minify-action@v1.0.1
+              with:
+                  overwrite: true
 
-      # Auto-commit to repository
-      - uses: stefanzweifel/git-auto-commit-action@v4
-        with:
-          commit_message: Minify source code
-          branch: ${{ github.ref }}
+            # Auto-commit to repository
+            - uses: stefanzweifel/git-auto-commit-action@v4
+              with:
+                  commit_message: Minify source code
+                  branch: ${{ github.ref }}
