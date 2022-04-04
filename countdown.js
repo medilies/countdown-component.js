@@ -1,4 +1,4 @@
-document.querySelectorAll("[CountDown]").forEach((t) => {
+document.querySelectorAll("[autoCountdown]").forEach((t) => {
     let o = parseInt(t.dataset.countdownDuration);
     const n = t.dataset.countdownFormat;
     let e = (function () {
@@ -15,7 +15,7 @@ document.querySelectorAll("[CountDown]").forEach((t) => {
         setInterval(() => {
             (o -= e),
                 o <= 0
-                    ? location.reload()
+                    ? window[t.dataset.countdownHandler]()
                     : ((o = o < 0 ? 0 : o),
                       (t.innerHTML = moment("1970-01-01")
                           .startOf("day")
