@@ -7,11 +7,10 @@ jobs:
     build:
         runs-on: ubuntu-latest
         steps:
-            - name: copy file
-                uses: canastro/copy-file-action@master
-                with:
-                    source: "countdown.js"
-                    target: "min/countdown.js"
+            - name: Copy the Readmes
+              run: |
+                  mkdir min |
+                  copy countdown.js min/countdown.js
 
             # Checks-out your repository
             - uses: actions/checkout@v2
@@ -21,7 +20,7 @@ jobs:
             - name: Minify Action
               uses: anthonyftwang/minify-action@v1.0.1
               with:
-                  directory: 'min'
+                  directory: "min"
                   overwrite: false
 
             # Auto-commit to repository
