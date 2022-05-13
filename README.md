@@ -22,6 +22,14 @@ This utility relies on `momentjs` library so you must include its CDN before cal
 ### Example
 
 ```html
-<div CountDown data-countdown-duration="60" data-countdown-format="mm:ss" data-countdown-step="1s"></div>
-<div CountDown data-countdown-duration="3660" data-countdown-format="HH:mm:ss" data-countdown-step="5s"></div>
+<div autoCountdown data-countdown-duration="60" data-countdown-format="mm:ss" data-countdown-step="1s"></div>
+<div autoCountdown data-countdown-duration="3660" data-countdown-format="HH:mm:ss" data-countdown-step="5s"></div>
 ```
+
+## Contributing
+
+Any kind of contribution is very welcomed, so feel free to reach for me so I can add to the repo
+
+### Help needed
+
+Set a github action to compile the code to ES5 and minify it
