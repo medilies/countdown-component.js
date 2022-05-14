@@ -4,24 +4,20 @@ const countDown = () => {
 
         const TIMER_FORMAT = el.dataset.countdownFormat;
 
-        const countdownStep = new Timespan(el.dataset.countdownStep);
+        const countdownStep = new Timespan(el.dataset.countdownStep || "1s");
 
         // init
-        el.innerHTML = moment
-            .utc(timer.getRemainingSeconds()) // TODO custom formatter
-            .format(TIMER_FORMAT);
+        el.innerHTML = timer.getFormattedRemainingTime(TIMER_FORMAT);
 
         setInterval(() => {
-            console.log(timer.getFormattedRemainingTime("G:i:s"));
-
             if (timer.getRemainingSeconds() <= 0) {
-                window[el.dataset.countdownHandler]();
+                el.dataset.countdownHandler
+                    ? window[el.dataset.countdownHandler]()
+                    : "do nothing";
                 return;
             }
 
-            el.innerHTML = moment
-                .utc(timer.getRemainingSeconds())
-                .format(TIMER_FORMAT);
+            el.innerHTML = timer.getFormattedRemainingTime(TIMER_FORMAT);
         }, countdownStep.getTotalMilliSeconds());
     });
 };
@@ -49,7 +45,6 @@ class Timer {
     }
 
     getRemainingSeconds() {
-        // console.log(this.targetTimestamp - Date.now());
         return this.targetTimestamp - Date.now();
     }
 
@@ -59,22 +54,35 @@ class Timer {
      */
     getFormattedRemainingTime(format) {
         const remainingTimeDate = new Date(this.getRemainingSeconds());
-        // console.log(remainingTimeDate);
 
         const formatter = {
-            j: remainingTimeDate.getDate(), // Day of the month without leading zeros  1 to 31
-            n: remainingTimeDate.getMonth() + 1, // Numeric representation of a month, without leading zeros  1 through 12
-            Y: remainingTimeDate.getFullYear(), // A full numeric representation of a year, at least 4 digits  1999 or 2003
+            d: remainingTimeDate.getDate(), // Day of the month without leading zeros  1 to 31
+            // n: remainingTimeDate.getMonth() + 1, // Numeric representation of a month, without leading zeros  1 through 12
+            // Y: remainingTimeDate.getFullYear(), // A full numeric representation of a year, at least 4 digits  1999 or 2003
 
-            G: remainingTimeDate.getHours(), // 24-hour format of an hour without leading zeros  0 through 23
-            i: remainingTimeDate.getMinutes(), // Minutes with leading zeros  00 to 59
-            s: remainingTimeDate.getSeconds(), // Seconds without leading zeros  0 through 59
-            v: remainingTimeDate.getMilliseconds(), // Milliseconds. Same note applies as for u.
+            hh:
+                remainingTimeDate.getHours() < 10
+                    ? "0" + remainingTimeDate.getHours()
+                    : remainingTimeDate.getHours(),
+            h: remainingTimeDate.getHours(),
+
+            mm:
+                remainingTimeDate.getMinutes() < 10
+                    ? "0" + remainingTimeDate.getMinutes()
+                    : remainingTimeDate.getMinutes(),
+            m: remainingTimeDate.getMinutes(),
+
+            ss:
+                remainingTimeDate.getSeconds() < 10
+                    ? "0" + remainingTimeDate.getSeconds()
+                    : remainingTimeDate.getSeconds(),
+            s: remainingTimeDate.getSeconds(),
+
+            // v: remainingTimeDate.getMilliseconds(), // Milliseconds. Same note applies as for u.
         };
 
         for (const [key, value] of Object.entries(formatter)) {
-            // console.log([key, value]);
-            format = format.replace(key, value);
+            format = format.replaceAll(key, value);
         }
 
         return format;
