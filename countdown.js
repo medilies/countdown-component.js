@@ -12,6 +12,8 @@ const countDown = () => {
             .format(TIMER_FORMAT);
 
         setInterval(() => {
+            console.log(timer.getFormattedRemainingTime("G:i:s"));
+
             if (timer.getRemainingSeconds() <= 0) {
                 window[el.dataset.countdownHandler]();
                 return;
@@ -49,6 +51,33 @@ class Timer {
     getRemainingSeconds() {
         // console.log(this.targetTimestamp - Date.now());
         return this.targetTimestamp - Date.now();
+    }
+
+    /**
+     *
+     * @param {string} format
+     */
+    getFormattedRemainingTime(format) {
+        const remainingTimeDate = new Date(this.getRemainingSeconds());
+        // console.log(remainingTimeDate);
+
+        const formatter = {
+            j: remainingTimeDate.getDate(), // Day of the month without leading zeros  1 to 31
+            n: remainingTimeDate.getMonth() + 1, // Numeric representation of a month, without leading zeros  1 through 12
+            Y: remainingTimeDate.getFullYear(), // A full numeric representation of a year, at least 4 digits  1999 or 2003
+
+            G: remainingTimeDate.getHours(), // 24-hour format of an hour without leading zeros  0 through 23
+            i: remainingTimeDate.getMinutes(), // Minutes with leading zeros  00 to 59
+            s: remainingTimeDate.getSeconds(), // Seconds without leading zeros  0 through 59
+            v: remainingTimeDate.getMilliseconds(), // Milliseconds. Same note applies as for u.
+        };
+
+        for (const [key, value] of Object.entries(formatter)) {
+            // console.log([key, value]);
+            format = format.replace(key, value);
+        }
+
+        return format;
     }
 }
 
