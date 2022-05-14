@@ -2,7 +2,10 @@
     "name": "countdown.js",
     "version": "1.0.0",
     "description": "A simple and lightweight library for adding coundowns to the frontend.",
-    "private": true,
+    "main": "./dist/countdouwn.min.js",
+    "files": [
+        "dist"
+    ],
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1"
     },
