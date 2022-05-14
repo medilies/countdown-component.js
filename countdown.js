@@ -1,26 +1,46 @@
-const countDown = () => {
+const startAutoCountown = () => {
     document.querySelectorAll("[autoCountdown]").forEach((el) => {
-        const timer = new Timer(el.dataset.countdownDuration);
+        new Countdown(el);
+    });
+};
 
-        const TIMER_FORMAT = el.dataset.countdownFormat;
-
-        const countdownStep = new Timespan(el.dataset.countdownStep || "1s");
+/**
+ *
+ */
+class Countdown {
+    /**
+     *
+     * @param {HTMLElement} el
+     */
+    constructor(el) {
+        this.timer = new Timer(el.getAttribute("countdown-duration"));
+        this.tick = new Tick(el.getAttribute("countdown-tick-size") || "1s");
+        this.element = el;
+        this.actionName = el.getAttribute("countdown-handler");
+        this.format = el.getAttribute("countdown-format");
 
         // init
-        el.innerHTML = timer.getFormattedRemainingTime(TIMER_FORMAT);
+        this.render();
 
         setInterval(() => {
-            if (timer.getRemainingSeconds() <= 0) {
-                el.dataset.countdownHandler
-                    ? window[el.dataset.countdownHandler]()
-                    : "do nothing";
+            if (this.timer.getRemainingSeconds() <= 0) {
+                this.actionName ? window[this.actionName]() : "do nothing";
                 return;
             }
 
-            el.innerHTML = timer.getFormattedRemainingTime(TIMER_FORMAT);
-        }, countdownStep.getTotalMilliSeconds());
-    });
-};
+            this.render();
+        }, this.tick.getSizeInMilliSeconds());
+    }
+
+    render() {
+        this.element.innerHTML = this.timer.getFormattedRemainingTime(
+            this.format
+        );
+    }
+
+    // TODO
+    abort() {}
+}
 
 /**
  *
@@ -28,10 +48,10 @@ const countDown = () => {
 class Timer {
     /**
      *
-     * @param {number} initDuration in seconds
+     * @param {number} duration in seconds
      */
-    constructor(initDuration) {
-        this.initDuration = initDuration;
+    constructor(duration) {
+        this.duration = duration;
 
         this._setTargetTimestamp();
     }
@@ -41,7 +61,7 @@ class Timer {
      * @param {number} remainingSeconds
      */
     _setTargetTimestamp() {
-        this.targetTimestamp = Date.now() + parseInt(this.initDuration) * 1000;
+        this.targetTimestamp = Date.now() + parseInt(this.duration) * 1000;
     }
 
     getRemainingSeconds() {
@@ -92,20 +112,19 @@ class Timer {
 /**
  *
  */
-class Timespan {
+class Tick {
     /**
      *
      * @param {string} timespanStr [<two-digits>h][<two-digits>m][<two-digits>s]
      */
     constructor(timespanStr) {
-        this.timespanStr = timespanStr.toLocaleLowerCase();
+        this.timespanStr = timespanStr.toLowerCase();
 
-        this._setParsedTimespanComposers();
-        // this._consolelog();
+        this._parseTimespan();
         this._setTotalSeconds();
     }
 
-    _setParsedTimespanComposers() {
+    _parseTimespan() {
         const HMS = this.timespanStr.match(
             /(?:(?<h>\d{0,2})h)?(?:(?<m>\d{0,2})m)?(?:(?<s>\d{0,2})s)?/
         );
@@ -120,21 +139,9 @@ class Timespan {
             this.hours * 3600 + this.minutes * 60 + this.seconds;
     }
 
-    getTotalSeconds() {
-        return this.totalSeconds;
-    }
-
-    getTotalMilliSeconds() {
+    getSizeInMilliSeconds() {
         return this.totalSeconds * 1000;
-    }
-
-    _consolelog() {
-        console.log({
-            hours: this.hours,
-            minutes: this.minutes,
-            seconds: this.seconds,
-        });
     }
 }
 
-countDown();
+startAutoCountown();
