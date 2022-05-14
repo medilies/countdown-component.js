@@ -3,10 +3,10 @@
 A simple and lightweight library to add coundowns in the frontend.
 
 ## Features
-- Simple inline setup using HTML attribute.
-- Custom display format.
+- Simple inline setup using HTML attributes.
+- Custom display format options.
 - Custom update interval.
-- Custom callback actions.
+- Custom callback action.
 
 ## Importing
 
@@ -28,7 +28,7 @@ Write a `div` or many with the following attributes.
 | data-countdown-step     | Sets the update interval size (a timespan)                                                        | Default: 1s |
 | data-countdown-handler  | Takes as value the name the function you defined to call as an action in the end of the countdown | Optional    |
 
-Note _timespan means string that are in the format "2m", "1h5s", "2h20m40s"_
+Note _a timespan is a string that is in the format "2m", "1h5s" or "2h20m40s"_
 
 ### Format
 
@@ -68,7 +68,7 @@ Note _timespan means string that are in the format "2m", "1h5s", "2h20m40s"_
 
 ## Contributing
 
-Any kind of contribution is very welcomed, so feel free to reach for me so I can add to the repo
+Any kind of contribution is very welcomed, so feel free to get in touch so I can add you to the repo.
 
 ### Help needed
 
