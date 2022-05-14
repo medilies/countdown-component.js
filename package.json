@@ -1,0 +1,29 @@
+{
+    "name": "countdown.js",
+    "version": "1.0.0",
+    "description": "A simple and lightweight library for adding coundowns to the frontend.",
+    "private": true,
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/medilies/countdown.js.git"
+    },
+    "keywords": [
+        "countdown",
+        "vanilla",
+        "component",
+        "html"
+    ],
+    "author": "medilies <medilies.contact@gmail.com>",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/medilies/countdown.js/issues"
+    },
+    "homepage": "https://github.com/medilies/countdown.js#readme",
+    "devDependencies": {
+        "webpack": "^5.72.1",
+        "webpack-cli": "^4.9.2"
+    }
+}

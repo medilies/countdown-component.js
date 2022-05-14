@@ -1,51 +1,6 @@
-const startAutoCountown = () => {
-    document.querySelectorAll("[autoCountdown]").forEach((el) => {
-        new Countdown(el);
-    });
-};
+"use strict";
 
-/**
- *
- */
-class Countdown {
-    /**
-     *
-     * @param {HTMLElement} el
-     */
-    constructor(el) {
-        this.timer = new Timer(el.getAttribute("countdown-duration"));
-        this.tick = new Tick(el.getAttribute("countdown-tick-size") || "1s");
-        this.element = el;
-        this.actionName = el.getAttribute("countdown-handler");
-        this.format = el.getAttribute("countdown-format");
-
-        // init
-        this.render();
-
-        setInterval(() => {
-            if (this.timer.getRemainingSeconds() <= 0) {
-                this.actionName ? window[this.actionName]() : "do nothing";
-                return;
-            }
-
-            this.render();
-        }, this.tick.getSizeInMilliSeconds());
-    }
-
-    render() {
-        this.element.innerHTML = this.timer.getFormattedRemainingTime(
-            this.format
-        );
-    }
-
-    // TODO
-    abort() {}
-}
-
-/**
- *
- */
-class Timer {
+export class Timer {
     /**
      *
      * @param {number} duration in seconds
@@ -108,40 +63,3 @@ class Timer {
         return format;
     }
 }
-
-/**
- *
- */
-class Tick {
-    /**
-     *
-     * @param {string} timespanStr [<two-digits>h][<two-digits>m][<two-digits>s]
-     */
-    constructor(timespanStr) {
-        this.timespanStr = timespanStr.toLowerCase();
-
-        this._parseTimespan();
-        this._setTotalSeconds();
-    }
-
-    _parseTimespan() {
-        const HMS = this.timespanStr.match(
-            /(?:(?<h>\d{0,2})h)?(?:(?<m>\d{0,2})m)?(?:(?<s>\d{0,2})s)?/
-        );
-
-        this.hours = parseInt(HMS.groups.h) || 0;
-        this.minutes = parseInt(HMS.groups.m) || 0;
-        this.seconds = parseInt(HMS.groups.s) || 0;
-    }
-
-    _setTotalSeconds() {
-        this.totalSeconds =
-            this.hours * 3600 + this.minutes * 60 + this.seconds;
-    }
-
-    getSizeInMilliSeconds() {
-        return this.totalSeconds * 1000;
-    }
-}
-
-startAutoCountown();
