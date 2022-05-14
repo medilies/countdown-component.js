@@ -8,15 +8,13 @@ A simple and lightweight library to add coundowns in the frontend.
 - Custom update interval.
 - Custom callback action.
 
-## Importing
+## Usage
 
-Just add the script to your project and start using it :)
+Add the script to your project.
 
 ```html
 <script src="/countdown.js" defer></script>
 ```
-
-## Usage
 
 Write a `div` or many with the following attributes.
 
@@ -68,7 +66,7 @@ Note _a timespan is a string that is in the format "2m", "1h5s" or "2h20m40s"_
 
 ## Contributing
 
-Any kind of contribution is very welcomed, so feel free to get in touch so I can add you to the repo.
+Any kind of contribution is very welcomed, so feel free to get in touch so I can add you to the repo :)
 
 ### Help needed
 
