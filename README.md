@@ -2,6 +2,12 @@
 
 A simple and lightweight library to add coundowns in the frontend.
 
+## Features
+- Simple inline setup using HTML attribute.
+- Custom display format.
+- Custom update interval.
+- Custom callback actions.
+
 ## Importing
 
 Just add the script to your project and start using it :)
@@ -35,7 +41,7 @@ Note _timespan means string that are in the format "2m", "1h5s", "2h20m40s"_
 | hh  | 24-hour format of an hour with leading zeros  00 through 23   |
 | h   | 24-hour format of an hour without leading zeros  0 through 23 |
 
-### Examples
+### Example
 
 ```html
 <div autoCountdown data-countdown-duration='10' data-countdown-format='hh:m:s'></div>
@@ -44,11 +50,19 @@ Note _timespan means string that are in the format "2m", "1h5s", "2h20m40s"_
 
 <div autoCountdown data-countdown-duration='3660' data-countdown-format='hh:mm:ss' data-countdown-step='5s'
     data-countdown-handler="reload"></div>
+
+<script>
+    function reload() {
+        location.reload();
+    }
+</script>
+
+<script src="/countdown.js" defer></script>
 ```
 
 ## Todo
 
-1. Add countdowns that start rolling on an event beside those that autostart when the page load because they have the `autoCountdown` attribute.
+1. Add countdowns that start rolling on an event beside those that autostart when the page loads because they have the `autoCountdown` attribute.
 2. Add other types of countdowns display beside the possibility of displaying as a formatted time. For example a progress bar.
 3. Share the library as through a CDN.
 
