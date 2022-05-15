@@ -1,9 +1,3 @@
-import { Countdown } from "./Countdown";
+require("./autoStartCountown.js");
 
-const startAutoCountown = () => {
-    document.querySelectorAll("[autoCountdown]").forEach((el) => {
-        new Countdown(el);
-    });
-};
-
-startAutoCountown();
+autoStartCountown();
