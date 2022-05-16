@@ -3,10 +3,10 @@ const path = require("path");
 module.exports = {
     mode: "production",
     target: "web",
-    entry: "./src/index.js",
+    entry: "./examples/app.js",
     output: {
-        filename: "countdouwn.min.js",
-        path: path.resolve(__dirname, "dist"),
+        filename: "index.js",
+        path: path.resolve(__dirname, "examples"),
         globalObject: "this",
     },
 };
