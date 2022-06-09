@@ -1,0 +1,45 @@
+<div autoCountdown countdown-duration='10' countdown-format='hh:m:s'></div>
+
+<hr>
+
+<div autoCountdown countdown-duration='13' countdown-format='mm:ss' countdown-handler="reload"></div>
+
+<hr>
+
+<div autoCountdown countdown-duration='5828' countdown-format='hh:ss' countdown-handler="reload"></div>
+
+<hr>
+
+<div>24h</div>
+<div autoCountdown countdown-duration='86400' countdown-format='hh:mm:ss' countdown-tick-size='2s'
+    countdown-handler="reload">
+</div>
+
+<hr>
+
+<div>48h</div>
+<div autoCountdown countdown-duration='172800' countdown-format='hh:mm:ss' countdown-tick-size='2s'
+    countdown-handler="reload">
+</div>
+
+<hr>
+
+<div>1 day</div>
+<div autoCountdown countdown-duration='86400' countdown-format='d:hh:mm:ss' countdown-tick-size='2s'
+    countdown-handler="reload">
+</div>
+
+<hr>
+
+<div>~40 days</div>
+<div autoCountdown countdown-duration='3455950' countdown-format='d hh:mm:ss' countdown-tick-size='3s'
+    countdown-handler="reload">
+</div>
+
+<script>
+    function reload() {
+        location.reload();
+    }
+</script>
+
+<script src='/examples/index.js' defer></script>
