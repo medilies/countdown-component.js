@@ -4,10 +4,10 @@ module.exports = {
     mode: "production",
     watch: true,
     target: "web",
-    entry: "./examples/app.js",
+    entry: "./dist/index.js",
     output: {
-        filename: "index.js",
-        path: path.resolve(__dirname, "examples"),
+        filename: "component.js",
+        path: path.resolve(__dirname, "dist"),
         globalObject: "this",
     },
 };
