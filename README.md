@@ -25,6 +25,10 @@ autoStartCountown();
 
 ### CDN
 
+```html
+<script src="https://cdn.jsdelivr.net/gh/medilies/countdown-component.js/dist/countdown-component.js"></script>
+```
+
 ## Usage
 
 Write a `div` or many with the following attributes.
@@ -66,8 +70,14 @@ Note _a timespan is a string that is in the format "2m", "1h5s" or "2h20m40s"_
     }
 </script>
 
-<script src="/countdown.js" defer></script>
+<script src='/dist/countdown-component.js'></script>
+
+<script>
+    autoStartCountown();
+</script>
 ```
+
+See: [pen](https://codepen.io/medilies/pen/abqMMYy)
 
 ## Todo
 
