@@ -1,6 +1,6 @@
 # Countdown JS
 
-A simple and lightweight library for adding coundowns to the frontend.
+A simple and lightweight library for adding coundowns to the frontend in declarative way.
 
 ## Features
 
@@ -9,23 +9,33 @@ A simple and lightweight library for adding coundowns to the frontend.
 - Custom update interval.
 - Custom callback action.
 
-## Usage
+## Setup
 
-Add the script to your project.
+### NPM
 
-```html
-<script src="/countdown.js" defer></script>
+```text
+npm i @medilies/countdown-component
 ```
+
+```js
+import { autoStartCountown } from "@medilies/countdown-component/lib/countdownComponent";
+
+autoStartCountown();
+```
+
+### CDN
+
+## Usage
 
 Write a `div` or many with the following attributes.
 
-| Attribute          | Description                                                                                       |             |
-| ------------------ | ------------------------------------------------------------------------------------------------- | ----------- |
-| autoCountdown      | Starts the countdown on page load                                                                 | Requried    |
-| countdown-duration | Sets the coundown duration (an integer in seconds)                                                | Required    |
-| countdown-format   | Sets the display format (see the formatting table)                                                | Required    |
-| countdown-tick-size     | Sets the update interval size (a timespan)                                                        | Default: 1s |
-| countdown-handler  | Takes as value the name the function you defined to call as an action in the end of the countdown | Optional    |
+| Attribute           | Description                                                                                       |             |
+| ------------------- | ------------------------------------------------------------------------------------------------- | ----------- |
+| autoCountdown       | Starts the countdown on page load                                                                 | Requried    |
+| countdown-duration  | Sets the coundown duration (an integer in seconds)                                                | Required    |
+| countdown-format    | Sets the display format (see the formatting table)                                                | Required    |
+| countdown-tick-size | Sets the update interval size (a timespan)                                                        | Default: 1s |
+| countdown-handler   | Takes as value the name the function you defined to call as an action in the end of the countdown | Optional    |
 
 Note _a timespan is a string that is in the format "2m", "1h5s" or "2h20m40s"_
 
@@ -70,6 +80,6 @@ Note _a timespan is a string that is in the format "2m", "1h5s" or "2h20m40s"_
 
 Any kind of contribution is very welcomed, so feel free to get in touch so I can add you to the repo :)
 
-### Help needed
+### Help needed to do
 
-Set a github action to compile the code to ES5 and minify it.
+...

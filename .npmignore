@@ -1,0 +1,4 @@
+.github*
+webpack.config.js
+examples*
+.gitignore
