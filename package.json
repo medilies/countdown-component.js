@@ -1,17 +1,20 @@
 {
     "name": "@medilies/countdown-component",
-    "version": "1.0.1",
+    "version": "0.1.0",
     "description": "A simple and lightweight library for adding coundowns to the frontend.",
     "main": "./lib/countdownComponent.js",
     "files": [
         "lib"
     ],
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "test": "echo \"Error: no test specified\" && exit 0"
     },
     "repository": {
         "type": "git",
         "url": "git+https://github.com/medilies/countdown-component.js.git"
+    },
+    "publishConfig": {
+        "@medilies:registry": "https://npm.pkg.github.com"
     },
     "keywords": [
         "countdown",
@@ -20,7 +23,7 @@
         "html"
     ],
     "author": "medilies <medilies.contact@gmail.com>",
-    "license": "ISC",
+    "license": "MIT",
     "bugs": {
         "url": "https://github.com/medilies/countdown-component.js/issues"
     },

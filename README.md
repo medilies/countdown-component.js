@@ -1,4 +1,4 @@
-# Countdown JS
+# Countdown Component JS
 
 A simple and lightweight library for adding coundowns to the frontend in declarative way.
 
@@ -36,7 +36,7 @@ Write a `div` or many with the following attributes.
 | Attribute           | Description                                                                                       |             |
 | ------------------- | ------------------------------------------------------------------------------------------------- | ----------- |
 | autoCountdown       | Starts the countdown on page load                                                                 | Requried    |
-| countdown-duration  | Sets the coundown duration (an integer in seconds)                                                | Required    |
+| countdown-duration  | Sets the countdown duration (an integer in seconds)                                                | Required    |
 | countdown-format    | Sets the display format (see the formatting table)                                                | Required    |
 | countdown-tick-size | Sets the update interval size (a timespan)                                                        | Default: 1s |
 | countdown-handler   | Takes as value the name the function you defined to call as an action in the end of the countdown | Optional    |
