@@ -1,6 +1,6 @@
 # Countdown Component JS
 
-A simple and lightweight library for adding coundowns to the frontend in declarative way.
+A simple and lightweight library for adding countdowns to the frontend in a declarative way.
 
 ## Features
 
@@ -35,7 +35,7 @@ Write a `div` or many with the following attributes.
 
 | Attribute           | Description                                                                                       |             |
 | ------------------- | ------------------------------------------------------------------------------------------------- | ----------- |
-| autoCountdown       | Starts the countdown on page load                                                                 | Requried    |
+| autoCountdown       | Starts the countdown on page load                                                                 | Required    |
 | countdown-duration  | Sets the countdown duration (an integer in seconds)                                                | Required    |
 | countdown-format    | Sets the display format (see the formatting table)                                                | Required    |
 | countdown-tick-size | Sets the update interval size (a timespan)                                                        | Default: 1s |
@@ -81,10 +81,10 @@ See: [pen](https://codepen.io/medilies/pen/abqMMYy)
 
 ## Todo
 
-1. Add countdowns that start rolling on an event beside those that autostart when the page loads because they have the `autoCountdown` attribute.
+1. Add countdowns that start rolling on an event beside those that auto start when the page loads because they have the `autoCountdown` attribute.
 2. Add other types of countdowns display beside the possibility of displaying as a formatted time. For example a progress bar.
 3. Share the library through a CDN.
-4. Add the possibility to aboart the countdown.
+4. Add the possibility to abort the countdown.
 
 ## Contributing
 
