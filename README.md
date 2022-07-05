@@ -26,7 +26,11 @@ autoStartCountown();
 ### CDN
 
 ```html
-<script src="https://cdn.jsdelivr.net/gh/medilies/countdown-component.js/dist/countdown-component.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/medilies/countdown-component.js@0.1.0/dist/countdown-component.js"></script>
+
+<script>
+autoStartCountown();
+</script>
 ```
 
 ## Usage
@@ -56,6 +60,8 @@ Note _a timespan is a string that is in the format "2m", "1h5s" or "2h20m40s"_
 
 ### Example
 
+See: [pen](https://codepen.io/medilies/pen/abqMMYy)
+
 ```html
 <div autoCountdown countdown-duration='10' countdown-format='hh:m:s'></div>
 
@@ -76,8 +82,6 @@ Note _a timespan is a string that is in the format "2m", "1h5s" or "2h20m40s"_
     autoStartCountown();
 </script>
 ```
-
-See: [pen](https://codepen.io/medilies/pen/abqMMYy)
 
 ## Todo
 
