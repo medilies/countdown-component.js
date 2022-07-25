@@ -1,5 +1,12 @@
 # Countdown Component JS
 
+![npm](https://img.shields.io/npm/v/@medilies/countdown-component)
+![npm](https://img.shields.io/npm/dt/@medilies/countdown-component)
+![npm bundle size](https://img.shields.io/bundlephobia/minzip/@medilies/countdown-component)
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/medilies/countdown-component/run-tests?label=tests)
+
+![banner](https://banners.beyondco.de/Countdown%20Component.png?theme=light&packageManager=npm+install&packageName=%40medilies%2Fcountdown-component&pattern=hexagons&style=style_1&description=Turn+normal+Divs+to+countdown+components+using+HTML+attributes&md=1&showWatermark=0&fontSize=100px&images=clock)
+
 A simple and lightweight library for adding countdowns to the frontend in a declarative way.
 
 ## Features
