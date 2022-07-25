@@ -2,6 +2,7 @@
 
 ![npm](https://img.shields.io/npm/v/@medilies/countdown-component)
 ![npm](https://img.shields.io/npm/dt/@medilies/countdown-component)
+![jsDelivr hits (GitHub)](https://img.shields.io/jsdelivr/gh/hy/medilies/countdown-component.js)
 ![npm bundle size](https://img.shields.io/bundlephobia/minzip/@medilies/countdown-component)
 ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/medilies/countdown-component/run-tests?label=tests)
 
